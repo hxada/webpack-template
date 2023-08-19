@@ -1,0 +1,14 @@
+#inspector {
+    display: flex;
+    flex-basis: 0;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--purple-1);
+    transition: flex-basis 0.5s;
+    white-space: nowrap;
+
+    &.open {
+        flex: 0 0 var(--inspector-size);
+    }
+}

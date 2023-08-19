@@ -1,0 +1,11 @@
+#control {
+  display: flex;
+  box-sizing: border-box;
+  height: 24pt;
+  color: black;
+  background: #EEF1FF;
+  padding: 10px;
+  align-items: center;
+  cursor: pointer;
+
+}
