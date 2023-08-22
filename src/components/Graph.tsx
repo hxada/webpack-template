@@ -2,16 +2,14 @@ import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import "./Graph.css";
 
-// 定义层次化数据结构类型
 interface HierarchyNode {
-  name: string; // 节点名称
-  version: number; // 版本号
-  children: HierarchyNode[]; // 子节点
-  hasCircularDependency?: boolean; // 标记循环依赖
-  hasDuplicateDependency?: boolean; // 标记重复依赖
+  name: string;
+  version: number;
+  children: HierarchyNode[];
+  hasCircularDependency?: boolean;
+  hasDuplicateDependency?: boolean;
 }
 
-// 将扁平化数据转换为层次化数据
 function convertHierarchy(data: any, ancestors: string[] = []): HierarchyNode {
   const root: HierarchyNode = {
     name: data.name,
@@ -19,14 +17,12 @@ function convertHierarchy(data: any, ancestors: string[] = []): HierarchyNode {
     children: [],
   };
 
-  // 初始化循环依赖和重复依赖标记
   let hasCircularDependency = false;
   let hasDuplicateDependency = false;
 
   if (data.dependecies && data.dependecies.length > 0) {
-    const dependencyCountMap = new Map(); // 记录依赖项出现次数的 Map
+    const dependencyCountMap = new Map();
     data.dependecies.forEach((dep) => {
-      // 检查依赖项是否已经出现过
       if (dependencyCountMap.has(dep.name)) {
         dependencyCountMap.set(dep.name, dependencyCountMap.get(dep.name) + 1);
         hasDuplicateDependency = true;
@@ -34,7 +30,6 @@ function convertHierarchy(data: any, ancestors: string[] = []): HierarchyNode {
         dependencyCountMap.set(dep.name, 1);
       }
 
-      // 判断循环依赖
       if (ancestors.includes(dep.name)) {
         hasCircularDependency = true;
       }
@@ -47,7 +42,6 @@ function convertHierarchy(data: any, ancestors: string[] = []): HierarchyNode {
       ancestors.pop();
     });
 
-    // 设置循环依赖和重复依赖属性
     root.hasCircularDependency = hasCircularDependency;
     root.hasDuplicateDependency = hasDuplicateDependency;
   }
@@ -55,7 +49,6 @@ function convertHierarchy(data: any, ancestors: string[] = []): HierarchyNode {
   return root;
 }
 
-// 合并多个层次化数据对象为一个
 function mergeHierarchyData(dataObjects): HierarchyNode {
   const mergedRoot: HierarchyNode = {
     name: "mergedRoot",
@@ -69,7 +62,6 @@ function mergeHierarchyData(dataObjects): HierarchyNode {
   return mergedRoot;
 }
 
-// 创建 SVG 元素
 function createSvg() {
   const svg = d3
     .select("#graph-svg")
@@ -80,7 +72,6 @@ function createSvg() {
   return { svg, width, height };
 }
 
-//绘制节点链接图
 function drawNodelinks(svg, width, height, hierarchyData) {
   const nodelinkG = svg
     .append("g")
@@ -144,7 +135,6 @@ export default function Graph() {
         const response = await fetch("./result.json");
         const data = await response.json();
 
-        // 将多个数据对象合并为一个层次化数据对象
         const mergedHierarchyData = mergeHierarchyData([
           data[0],
           data[1],
