@@ -1,0 +1,25 @@
+#info-pane {
+  background: var(--purple-base);
+  display: flex;
+  flex-direction: column;
+  height: 5em;
+  font-size: 10pt;
+
+  #info-pane-cards {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 0px;
+    #info-pane-hr {
+      border: 0px solid;
+      border-color: var(--purple-highlight);
+    }
+  }
+
+  #info-pane-description {
+    padding: 0px;
+    flex-grow: 1;
+    background: linear-gradient(var(--purple-highlight) 0 0) top/ 90% 0px
+      no-repeat;
+  }
+}

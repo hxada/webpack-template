@@ -1,0 +1,37 @@
+#inspector {
+  display: flex;
+  flex-basis: 0;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--purple-base);
+  transition: flex-basis 0.5s;
+  white-space: nowrap;
+
+  &.open {
+    flex: 0 0 var(--inspector-size);
+  }
+}
+
+#tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: var(--purple-unselected);
+  height: var(--tab-height);
+
+  .tab {
+    flex-grow: 1;
+    flex-basis: 1;
+    cursor: pointer;
+    padding: 5px 5px;
+    font-size: 10pt;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+
+    &.active {
+      background: var(--purple-selected);
+      color: black;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+#control {
+  display: flex;
+  box-sizing: border-box;
+  color: white;
+  background: #92aff4;
+  border-radius: 5px 0px;
+  padding: 8px;
+  align-items: start;
+  cursor: pointer;
+}

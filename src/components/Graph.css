@@ -1,18 +1,12 @@
 #graph-pane {
-  min-height: 100vh;
   flex-grow: 1;
-  overflow: auto;
-  border: 1px solid #ccc;
+  flex-direction: column;
+}
+.node {
+  cursor: pointer;
 }
 
-/* #graph-display {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-} */
-
-#graph-display svg {
-  width: 100%;
-  height: 100%;
+.node:hover {
+  font-weight: bold;
+  fill: #2863ed;
 }

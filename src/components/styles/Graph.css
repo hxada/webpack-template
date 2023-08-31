@@ -1,0 +1,12 @@
+#graph-pane {
+  flex-grow: 1;
+  flex-direction: column;
+}
+.node {
+  cursor: pointer;
+}
+
+.node:hover {
+  font-weight: bold;
+  fill: #2863ed;
+}
