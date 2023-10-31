@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    // 编译选项
+    "target": "ESNext", //目标语言版本
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], //编译过程中需要引入的库文件的列表
+    "allowJs": false, //是否允许编译js文件
+    "allowSyntheticDefaultImports": true, //是否允许从没有设置默认导出的模块中默认导入
+    "skipLibCheck": false, //是否跳过类型检查
+    "esModuleInterop": false, //是否启用es模块的导入语法
+    "strict": true, //是否启用严格模式
+    "forceConsistentCasingInFileNames": true, //是否检查文件名的大小写
+    "module": "ESNext", //指定生成哪个模块系统代码
+    "moduleResolution": "Node", //模块解析策略
+    "resolveJsonModule": true, //是否允许导入json文件
+    "isolatedModules": true, //是否将每个文件做为单独的模块
+    "noEmit": true, //是否编译文件
+    "jsx": "react" //指定jsx代码的生成
+  },
+  "include": ["./src"] //指定需要编译的文件
+}

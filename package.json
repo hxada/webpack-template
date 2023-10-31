@@ -1,0 +1,30 @@
+{
+  "name": "pkgpulse-camp23",
+  "version": "1.0.0",
+  "description": "新建 react 项目并加 webpack 配置流程",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hxada/PKGPulse-camp23.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hxada/PKGPulse-camp23/issues"
+  },
+  "homepage": "https://github.com/hxada/PKGPulse-camp23#readme",
+  "devDependencies": {
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
