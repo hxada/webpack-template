@@ -1,6 +1,7 @@
 _build-webpack.base.js # 公共配置<br/>
 build-webpack.dev.js # 开发环境配置<br/>
 build-webpack.prod.js # 打包环境配置<br/>
+build-webpack.analy.js #分析配置<br/>
 public-index.html # html 模板<br/>
 src-index.tsx # react 应用入口页面<br/>
 tsconfig.json # ts 配置<br/>_
