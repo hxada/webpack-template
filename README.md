@@ -28,9 +28,7 @@ npm run build<br/>
 
 ### 配置环境变量
 
-环境变量按作用分为两种：<br/>  
-1.开发模式/打包构建模式:process.env.NODE_ENV<br/>  
-2.业务环境:开发/测试/预测/正式:process.env.BASE_ENV<br/>
+环境变量按作用分为两种：<br/> 1.开发模式/打包构建模式:process.env.NODE_ENV<br/> 2.业务环境:开发/测试/预测/正式:process.env.BASE_ENV<br/>
 
 安装 cross-env:兼容各系统的设置环境变量的包 npm i cross-env -D<br/>
 修改 package.json 的 scripts 脚本字段<br/>
