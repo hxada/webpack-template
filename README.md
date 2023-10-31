@@ -111,8 +111,7 @@ webpack 支持设置别名 alias,设置别名可以让后续引用的地方减�
 
 #### 精确使用 loader
 
-loader 在 webpack 构建过程中使用的位置是在 webpack 构建模块依赖关系引入新文件时，会根据文件后缀来倒序遍历 rules 数组，如果文件后缀和 test 正则匹配到了，就会使用该 rule 中配置的 loader 依次对文件源代码进行处理，最终拿到处理后的 sourceCode 结果，可以通过避免使用无用的 loader 解析来提升构建速度，比如使用 less-loader 解析 css 文件。<br/>
-ts 和 tsx 也是如此，ts 里面是不能写 jsx 语法的，所以可以尽可能避免使用 @babel/preset-react 对 .ts 文件语法做处理。<br/>
+loader 在 webpack 构建过程中使用的位置是在 webpack 构建模块依赖关系引入新文件时，会根据文件后缀来倒序遍历 rules 数组，如果文件后缀和 test 正则匹配到了，就会使用该 rule 中配置的 loader 依次对文件源代码进行处理，最终拿到处理后的 sourceCode 结果，可以通过避免使用无用的 loader 解析来提升构建速度，比如使用 less-loader 解析 css 文件。ts 和 tsx 也是如此，ts 里面是不能写 jsx 语法的，所以可以尽可能避免使用 @babel/preset-react 对 .ts 文件语法做处理。<br/>
 本项目未分<br/>
 
 #### 缩小模块搜索范围
@@ -152,8 +151,7 @@ webpack-bundle-analyzer 是分析 webpack 打包后文件的插件,使用交互�
 
 #### 抽取 css 样式文件
 
-在开发环境我们希望 css 嵌入在 style 标签里面,方便样式热替换,但打包时我们希望把 css 单独抽离出来,方便配置缓存策略<br/>
-插件 mini-css-extract-plugin:npm i mini-css-extract-plugin -D<br/>
+在开发环境我们希望 css 嵌入在 style 标签里面,方便样式热替换,但打包时我们希望把 css 单独抽离出来,方便配置缓存策略，插件 mini-css-extract-plugin:npm i mini-css-extract-plugin -D<br/>
 
 #### 压缩 css 文件
 
@@ -161,7 +159,7 @@ webpack-bundle-analyzer 是分析 webpack 打包后文件的插件,使用交互�
 
 #### 压缩 js 文件
 
-设置 mode 为 production 时,webpack 会使用内置插件 terser-webpack-plugin 压缩 js 文件,该插件默认支持多线程压缩,但是上面配置 optimization.minimizer 压缩 css 后,js 压缩就失效了,需要手动再添加一下,webpack 内部安装了该插件<br/>
+设置 mode 为 production 时,webpack 会使用内置插件 terser-webpack-plugin 压缩 js 文件,该插件默认支持多线程压缩,但是配置 optimization.minimizer 压缩 css 后,js 压缩就失效了,需要手动再添加一下,webpack 内部安装了该插件<br/>
 
 #### 合理配置打包文件 hash
 
@@ -197,8 +195,8 @@ webpack 默认支持资源懒加载,只需要引入资源**使用 import 语法�
 配置了资源懒加载后,虽然提升了首屏渲染速度,但是加载到资源的时候会有一个去请求资源的延时,如果资源比较大会出现延迟卡顿现象,可以借助 link 标签的 rel 属性 prefetch 与 preload,link 标签除了加载 css 之外也可以加载 js 资源,设置 rel 属性可以规定 link 提前加载资源,但是加载资源后不执行,等用到了再执行<br/>
 
 rel 的属性值<br/>
-1.preload 是告诉浏览器页面必定需要的资源,浏览器一定会加载这些资源。<br/>
-2.prefetch 是告诉浏览器页面可能需要的资源,浏览器不一定会加载这些资源,会在空闲时加载。<br/>
+`preload` 是告诉浏览器页面必定需要的资源,浏览器一定会加载这些资源。<br/>
+`prefetch` 是告诉浏览器页面可能需要的资源,浏览器不一定会加载这些资源,会在空闲时加载。<br/>
 
 webpack v4.6.0+ 增加了对预获取和预加载的支持,使用方式也比较简单,在 import 引入动态资源时使用 webpack 的魔法注释<br/>
 
