@@ -14,12 +14,29 @@ module.exports = {
         rules: [
             {
                 test: /.(ts|tsx)$/,//匹配ts,tsx文件
-                use: {
-                    loader: 'babel-loader',
-                    options: {//预设的执行顺序是从右向左，所以先处理ts，再处理jsx
-                        presets: ['@babel/preset-react', '@babel/preset-typescript']
-                    }
-                }
+                use: 'babel-loader'//具体配置在babel.config.js中
+            },
+            {
+                test: /\.(css|less)$/,//匹配css和less文件
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
+            },
+            {
+                test: /.(png|jpg|jpeg|gif|svg)$/,//匹配图片文件
+                type: "asset",
+                parser: { dataUrlCondition: { maxSize: 10 * 1024 } },//小于10kb转base64位
+                generator: { filename: 'static/images/[name][ext]' },//文件输出目录和命名
+            },
+            {
+                test: /.(woff2?|eot|ttf|otf)$/,//匹配字体图标文件
+                type: "asset",
+                parser: { dataUrlCondition: { maxSize: 10 * 1024 } },
+                generator: { filename: 'static/fonts/[name][ext]' },
+            },
+            {
+                test: /.(mp4|webm|ogg|mp3|wav|flac|acc)$/,//匹配媒体文件
+                type: "asset",
+                parser: { dataUrlCondition: { maxSize: 10 * 1024 } },
+                generator: { filename: 'static/media/[name][ext]' }
             }
         ]
     },
