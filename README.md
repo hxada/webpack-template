@@ -148,8 +148,7 @@ webpack.prod.js 打包环境推荐：none(就是不配置 devtool 选项了，�
 
 #### webpack 包分析工具
 
-webpack-bundle-analyzer 是分析 webpack 打包后文件的插件,使用交互式可缩放树形图可视化 webpack 输出文件的大小<br/>
-npm install webpack-bundle-analyzer -D<br/>
+webpack-bundle-analyzer 是分析 webpack 打包后文件的插件,使用交互式可缩放树形图可视化 webpack 输出文件的大小:npm install webpack-bundle-analyzer -D<br/>
 
 #### 抽取 css 样式文件
 
@@ -158,8 +157,7 @@ npm install webpack-bundle-analyzer -D<br/>
 
 #### 压缩 css 文件
 
-借助 css-minimizer-webpack-plugin 来压缩 css<br/>
-npm i css-minimizer-webpack-plugin -D<br/>
+借助 css-minimizer-webpack-plugin 来压缩 css: npm i css-minimizer-webpack-plugin -D<br/>
 
 #### 压缩 js 文件
 
