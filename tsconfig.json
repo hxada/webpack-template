@@ -15,7 +15,9 @@
     "isolatedModules": true, //是否将每个文件做为单独的模块
     "noEmit": true, //是否编译文件
     "jsx": "react", //指定jsx代码的生成
-    "experimentalDecorators": true //开启装饰器使用
+    "experimentalDecorators": true, //开启装饰器使用
+    "baseUrl": ".", //解析非相对模块的基地址
+    "paths": { "@/*": ["src/*"] } //路径映射
   },
   "include": ["./src"] //指定需要编译的文件
 }

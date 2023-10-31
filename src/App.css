@@ -1,3 +1,18 @@
 h2 {
   color: red;
+  transform: translate(50px);
+}
+
+.smallImage1 {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: aqua;
+}
+
+.bigImage {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: aqua;
 }

@@ -1,0 +1,1 @@
+"use strict"; (self.webpackChunkpkgpulse_camp23 = self.webpackChunkpkgpulse_camp23 || []).push([[377], { 3475: function (e, u, c) { c.r(u); var n = c(7294); u.default = function () { return n.createElement("h3", null, "我是PreFetchDemo组件") } } }]);
