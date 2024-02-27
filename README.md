@@ -20,7 +20,7 @@
 安装 react 依赖 : `npm i react react-dom -S`<br/>
 安装 react 类型依赖 : `npm i @types/react @types/react-dom -D`<br/>
 
-**✨webpack.baee.js**<br/>
+**✨webpack.base.js**<br/>
 安装 babel 核心和预设 : `npm i babel-loader @babel/core @babel/preset-react @babel/preset-typescript -D`<br/>
 配置 extensions，文件后缀名查找<br/>
 添加 html-webpack-plugin 插件 : `npm i html-webpack-plugin -D`<br/>
@@ -120,8 +120,8 @@ webpack 支持设置别名 alias,设置别名可以让后续引用的地方减�
 
 #### ✅ 精确使用 loader
 
-loader 在 webpack 构建过程中使用的位置是在 webpack 构建模块依赖关系引入新文件时，会根据文件后缀来倒序遍历 rules 数组，如果文件后缀和 test 正则匹配到了，就会使用该 rule 中配置的 loader 依次对文件源代码进行处理，最终拿到处理后的 sourceCode 结果，可以通过避免使用无用的 loader 解析来提升构建速度，比如使用 less-loader 解析 css 文件。<br />
-ts 和 tsx 也是如此，ts 里面是不能写 jsx 语法的，所以可以尽可能避免使用 @babel/preset-react 对 .ts 文件语法做处理。<br/>
+loader 在 webpack 构建过程中使用的位置是在 webpack 构建模块依赖关系引入新文件时，会根据文件后缀来倒序遍历 rules 数组，如果文件后缀和 test 正则匹配到了，就会使用该 rule 中配置的 loader 依次对文件源代码进行处理，最终拿到处理后的 sourceCode 结果<br/>
+可以通过**避免使用无用的 loader 解析来提升构建速度**，比如使用 less-loader 解析 css 文件。ts 和 tsx 也是如此，ts 里面是不能写 jsx 语法的，所以可以尽可能避免使用 @babel/preset-react 对 .ts 文件语法做处理。<br/>
 注：本项目未分<br/>
 
 #### ✅ 缩小模块搜索范围
@@ -131,8 +131,7 @@ node 核心模块、node_modules 模块、自定义文件模块<br/>
 
 使用 require 和 import 引入模块时如果有准确的相对或者绝对路径，就会按照路径去查询，如果没有就会优先查询 node 核心模块，如果再没有就会去当前目录下的 node_modules 寻找，没有找到会从父级文件夹查找 node_modules，一直查到系统 node 全局模块<br/>
 这样会有两个问题，一个是当前项目没有安装某个依赖，但是上一级目录下 node_modules 或者全局模块有安装，就也会引入成功，但是部署到服务器时可能就会找不到造成报错。另一个问题是一级一级查询比较消耗时间。<br/>
-可以告诉 webpack 搜索目录范围来规避这两个问题<br/>
-修改 webpack.base.js<br/>
+可以告诉 webpack 搜索目录范围来规避这两个问题,修改 webpack.base.js<br/>
 
 #### ✅ devtool 配置
 
@@ -150,8 +149,7 @@ devtool 的命名规则为 <br/>
 开发中,我们每行代码不会写的太长,只需要定位到行就行,所以加上 cheap<br/>
 我们希望能够找到源代码的错误,而不是打包后的,所以需要加上 module<br/>
 
-修改 webpack.dev.js<br/>
-webpack.prod.js 打包环境推荐：none(就是不配置 devtool 选项了，不是配置 devtool: 'none')<br/>
+修改 webpack.dev.js: webpack.prod.js 打包环境推荐：none(就是**不配置 devtool 选项了，不是配置 devtool: 'none'**)<br/>
 
 ### 3️⃣ 优化构建结果文件
 
